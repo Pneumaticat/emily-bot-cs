@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("emily-bot-cs")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A Multi-Purpose bot coded in Discord.NET")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Fyre United Developrs")]
 [assembly: AssemblyProduct("emily-bot-cs")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
