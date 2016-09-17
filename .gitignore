@@ -48,3 +48,9 @@ Temporary Items
 
 #logOn
 logon.cs
+
+#Bin
+bin
+
+#Obj
+obj
