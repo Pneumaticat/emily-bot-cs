@@ -35,6 +35,7 @@ namespace emily_bot_cs
             {
                 x.PrefixChar = '~';
                 x.AllowMentionPrefix = true;
+                x.HelpMode = HelpMode.Public;
             });
 
             _commands = new commands();
@@ -43,8 +44,6 @@ namespace emily_bot_cs
             _logOn = new logOn();
             _logOn.LogOnDiscord();
         }
-
-
 
         public void Log(object sender, LogMessageEventArgs e)
         {

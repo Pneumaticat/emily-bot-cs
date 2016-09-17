@@ -17,6 +17,7 @@ namespace emily_bot_cs
 
             #region ~ping
             _commands.CreateCommand("ping")
+                .Description("Returns 'Pong!'")
                 .Do(async (e) =>
                 {
                     await e.Channel.SendMessage("pong!");
