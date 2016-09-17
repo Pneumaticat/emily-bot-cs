@@ -41,6 +41,7 @@ namespace emily_bot_cs
             _commands = new commands();
             _commands.CreateCommands();
 
+
             _logOn = new logOn();
             _logOn.LogOnDiscord();
         }

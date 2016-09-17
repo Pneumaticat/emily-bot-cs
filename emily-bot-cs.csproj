@@ -83,6 +83,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasicModule.cs" />
     <Compile Include="commands.cs" />
     <Compile Include="logOn.cs" />
     <Compile Include="Program.cs" />
