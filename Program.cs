@@ -17,12 +17,14 @@ namespace emily_bot_cs
             new Program().Start();
         }
 
-        private DiscordClient _client;
+        public static DiscordClient _client;
+        public static commands _commands;
+        public static logOn _logOn;
 
         public void Start()
         {
             _client = new DiscordClient(x =>
-            {
+            {   
                 x.AppName = "Emily Bot";
                 x.AppUrl = "http://nitroignika.github.io";
                 x.LogLevel = LogSeverity.Info;
@@ -35,12 +37,11 @@ namespace emily_bot_cs
                 x.AllowMentionPrefix = true;
             });
 
-            var token = "MjE4OTE5ODU5NDgyNzg3ODQw.Cr4uUQ.Fla_aKtnW7YDtP_QyXGsBxdGZWw";
+            _commands = new commands();
+            _commands.CreateCommands();
 
-            _client.ExecuteAndWait(async () => 
-            {
-                await _client.Connect(token);
-            });
+            _logOn = new logOn();
+            _logOn.LogOnDiscord();
         }
 
 
