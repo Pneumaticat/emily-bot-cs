@@ -51,6 +51,8 @@ logon.cs
 
 #Bin
 bin
+/bin/**
 
 #Obj
-obj
+/obj
+/obj/**
