@@ -86,6 +86,7 @@
     <Compile Include="Enums\PermissionLevel.cs" />
     <Compile Include="logOn.cs" />
     <Compile Include="Modules\Basic Commands\BasicCommands.cs" />
+    <Compile Include="Modules\Memes\memes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
