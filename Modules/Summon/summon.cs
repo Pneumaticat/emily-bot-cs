@@ -9,9 +9,9 @@ using Discord.Commands;
 using Discord.Commands.Permissions.Levels;
 using emily.Enums;
 
-namespace emily.Modules.memes
+namespace emily.Modules.summon
 {
-    class Memes : IModule
+    class Summon : IModule
     {
         private DiscordClient _client;
         private ModuleManager _manager;
@@ -24,7 +24,7 @@ namespace emily.Modules.memes
             manager.CreateCommands("", cgb =>
             {
                 cgb.MinPermissions((int)PermissionLevel.User);
-                #region ~meme
+                #region ~summon doge
                 #endregion
 
             });

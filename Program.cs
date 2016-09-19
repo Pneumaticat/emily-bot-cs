@@ -10,6 +10,8 @@ using Discord.Modules;
 using Discord.Audio;
 using emily.Enums;
 using emily.Modules.Basic_Commands;
+using emily.Modules.memes;
+using emily.Modules.summon;
 
 namespace emily_bot_cs
 {
@@ -44,6 +46,8 @@ namespace emily_bot_cs
             _client.UsingPermissionLevels((u, c) => (int)GetPermissions(u, c));
 
             _client.AddModule<BasicCommands>("Standard", ModuleFilter.None);
+            _client.AddModule<Memes>("Standard", ModuleFilter.None);
+            _client.AddModule<Summon>("Standard", ModuleFilter.None);
 
             _logOn = new logOn();
             _logOn.LogOnDiscord();
