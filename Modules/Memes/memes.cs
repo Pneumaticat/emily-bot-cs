@@ -24,6 +24,9 @@ namespace emily.Modules.memes
             manager.CreateCommands("", cgb =>
             {
                 cgb.MinPermissions((int)PermissionLevel.User);
+
+                //STILL IN PROGRESS
+
                 #region ~meme
                 #endregion
 

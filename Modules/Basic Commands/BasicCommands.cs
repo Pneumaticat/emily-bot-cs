@@ -57,6 +57,18 @@ namespace emily.Modules.Basic_Commands
                     await e.Channel.DeleteMessages(messagesToDelete);
                 });
                 #endregion
+
+                #region ~greet
+                _client.GetService<CommandService>().CreateCommand("greet")
+                .MinPermissions((int)PermissionLevel.User)
+                .Alias(new string[] { "gr", "sayhi" })
+                .Description("Greets a person.")
+                .Parameter("GreetedPerson", ParameterType.Required)
+                .Do(async e =>
+                {
+                    await e.Channel.SendMessage($"{e.User.Name} greets {e.GetArg("GreetedPerson")}");
+                });
+                #endregion
             });
         }
     }
