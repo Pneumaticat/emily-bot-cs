@@ -25,9 +25,29 @@ namespace emily.Modules.memes
             {
                 cgb.MinPermissions((int)PermissionLevel.User);
 
-                //STILL IN PROGRESS
+                Random rand;
+                rand = new Random();
+
+                string[] memes;
+
+                memes = new string[]
+                {
+                    @"Modules\Memes\memeImages\meme1.jpg",
+                    @"Modules\Memes\memeImages\meme2.jpg",
+                    @"Modules\Memes\memeImages\meme3.jpg"
+
+                };
 
                 #region ~meme
+                cgb.CreateCommand("meme")
+                .MinPermissions((int)PermissionLevel.User)
+                .Description("Posts the dankest of memes!")
+                .Do(async e =>
+                {
+                    int randomFile = rand.Next(memes.Length);
+                    string fileToSend = memes[randomFile];
+                    await e.Channel.SendFile(fileToSend);
+                });
                 #endregion
 
             });
