@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://nitroignika.github.io">
-    <img alt="discord.js" src="http://i.imgur.com/J2YbKVE.png" width="546">
+    <img alt="discord.js" src="http://i.imgur.com/rNb9U4F.png" width="546">
   </a>
 </p>
 
