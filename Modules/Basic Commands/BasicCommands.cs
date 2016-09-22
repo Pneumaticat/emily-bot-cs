@@ -32,6 +32,9 @@ namespace emily.Modules.Basic_Commands
                 .Parameter("text", ParameterType.Unparsed)
                 .Do(async e =>
                 {
+                    Message[] messagesToDelete;
+                    messagesToDelete = await e.Channel.DownloadMessages(1);
+                    await e.Channel.DeleteMessages(messagesToDelete);
                     await e.Channel.SendMessage(e.GetArg("text"));
                 });
                 #endregion
