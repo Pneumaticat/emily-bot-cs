@@ -24,8 +24,26 @@ namespace emily.Modules.summon
             manager.CreateCommands("", cgb =>
             {
                 cgb.MinPermissions((int)PermissionLevel.User);
-                
-                //STILL IN PROGRESS
+
+                //IN PROGRESS
+
+                //Kittens
+                string[] kittens;
+                kittens = new string[]
+                {
+                    @"Modules\Summon\kittenImages\kitten1.jpg",
+                    @"Modules\Summon\kittenImages\kitten2.jpg",
+                    @"Modules\Summon\kittenImages\kitten3.jpg"
+                };
+
+                //Puppies
+                string[] puppies;
+                puppies = new string[]
+                {
+                    @"Modules\Summon\puppyImages\puppy1.jgp",
+                    @"Modules\Summon\puppyImages\puppy2.jgp",
+                    @"Modules\Summon\puppyImages\puppy3.jgp"
+                };
 
                 #region ~summon doge
                 cgb.CreateCommand("summon")
@@ -35,7 +53,7 @@ namespace emily.Modules.summon
                 .Parameter("RequestedCreature", ParameterType.Required)
                 .Do(async e =>
                 {
-                    await e.Channel.SendMessage($"Summoned a {e.GetArg("RequestedCreature")}");
+                    await e.Channel.SendMessage("I like trains");
                 });
                 #endregion
 
