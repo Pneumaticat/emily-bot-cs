@@ -9,10 +9,12 @@ using Discord.Commands.Permissions.Levels;
 using Discord.Modules;
 using Discord.Audio;
 using emily.Enums;
-using emily.Modules.Basic_Commands;
+using emily.Modules.usercommands;
 using emily.Modules.memes;
 using emily.Modules.summon;
 using emily.Modules.admin;
+
+
 namespace emily_bot_cs
 {
     class Program
@@ -45,9 +47,10 @@ namespace emily_bot_cs
             _client.UsingModules();
             _client.UsingPermissionLevels((u, c) => (int)GetPermissions(u, c));
 
-            _client.AddModule<BasicCommands>("Standard", ModuleFilter.None);
+            _client.AddModule<usercommands>("Standard", ModuleFilter.None);
             _client.AddModule<Memes>("Standard", ModuleFilter.None);
             _client.AddModule<Summon>("Standard", ModuleFilter.None);
+            _client.AddModule<admin>("Standard", ModuleFilter.None);
 
             _logOn = new logOn();
             _logOn.LogOnDiscord();

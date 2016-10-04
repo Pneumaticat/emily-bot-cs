@@ -9,9 +9,9 @@ using Discord.Commands;
 using Discord.Commands.Permissions.Levels;
 using emily.Enums;
 
-namespace emily.Modules.Basic_Commands
+namespace emily.Modules.usercommands
 {
-    class BasicCommands : IModule
+    class usercommands : IModule
     {
         private DiscordClient _client;
         private ModuleManager _manager;
@@ -24,6 +24,19 @@ namespace emily.Modules.Basic_Commands
             manager.CreateCommands("", cgb =>
             {
                 cgb.MinPermissions((int)PermissionLevel.User);
+
+                Random rand;
+                rand = new Random();
+
+                string[] thanks;
+
+                thanks = new string[]
+                {
+                    "No problem!",
+                    "Anytime!",
+                    "Just ask!"
+
+                };
 
                 #region ~say
                 cgb.CreateCommand("say")
@@ -49,20 +62,8 @@ namespace emily.Modules.Basic_Commands
                 });
                 #endregion
 
-                #region ~prune
-                cgb.CreateCommand("Purge")
-                .MinPermissions((int)PermissionLevel.ServerAdmin)
-                .Description("Deletes the last 100 messages")
-                .Do(async e =>
-                {
-                    Message[] messagesToDelete;
-                    messagesToDelete = await e.Channel.DownloadMessages(100);
-                    await e.Channel.DeleteMessages(messagesToDelete);
-                });
-                #endregion
-
                 #region ~greet
-                _client.GetService<CommandService>().CreateCommand("greet")
+                cgb.CreateCommand("greet")
                 .MinPermissions((int)PermissionLevel.User)
                 .Alias(new string[] { "gr", "sayhi" })
                 .Description("Greets a person.")
@@ -73,36 +74,19 @@ namespace emily.Modules.Basic_Commands
                 });
                 #endregion
 
-                #region ~kick
-                cgb.CreateCommand("kick")
-                    .Description("Kicks requested user")
-                    .Parameter("user")
-                    .MinPermissions((int)PermissionLevel.ServerAdmin)
-                    .Do(async e =>
-                    {
-                        ulong id;
-                        User m = null;
-                        string mentionedUser = e.Args[0];
-                        if (!string.IsNullOrWhiteSpace(mentionedUser))
-                        {
-                            if (e.Message.MentionedUsers.Count() == 1)
-                                m = e.Message.MentionedUsers.FirstOrDefault();
-                            else if (e.Server.FindUsers(mentionedUser).Any())
-                                m = e.Server.FindUsers(mentionedUser).FirstOrDefault();
-                            else if (ulong.TryParse(mentionedUser, out id))
-                                m = e.Server.GetUser(id);
-                        }
+                #region ~thank
+                cgb.CreateCommand("thanks")
+                .MinPermissions((int)PermissionLevel.User)
+                .Description("Thank Emily!")
+                .Do(async e =>
+                {
+                    int randomThank = rand.Next(thanks.Length);
+                    string thankToSend = thanks[randomThank];
 
-                        if (m == null)
-                        {
-                            await e.Channel.SendMessage($"The user `{mentionedUser}` was not found! ");
-                            return;
-                        }
-
-                        await e.Channel.SendMessage($":wave: {mentionedUser}");
-                        await m.Kick();
-                    });
+                    await e.Channel.SendMessage(thankToSend);
+                });
                 #endregion
+
             });
         }
     }
