@@ -50,9 +50,9 @@ Temporary Items
 logon.cs
 
 #Bin
-bin
-/bin/**
+/emily-bot-cs/bin/
+/emily-bot-cs/bin/**
 
 #Obj
-/obj
-/obj/**
+/emily-bot-cs/obj/
+/emily-bot-cs/obj/**
