@@ -56,6 +56,37 @@ namespace emily.Modules.admin
                     });
                 #endregion
 
+                #region ~ban
+                cgb.CreateCommand("ban")
+                    .Description("Bans requested user")
+                    .Parameter("user")
+                    .MinPermissions((int)PermissionLevel.ServerAdmin)
+                    .Do(async e =>
+                    {
+                        ulong id;
+                        User m = null;
+                        string mentionedUser = e.Args[0];
+                        if (!string.IsNullOrWhiteSpace(mentionedUser))
+                        {
+                            if (e.Message.MentionedUsers.Count() == 1)
+                                m = e.Message.MentionedUsers.FirstOrDefault();
+                            else if (e.Server.FindUsers(mentionedUser).Any())
+                                m = e.Server.FindUsers(mentionedUser).FirstOrDefault();
+                            else if (ulong.TryParse(mentionedUser, out id))
+                                m = e.Server.GetUser(id);
+                        }
+
+                        if (m == null)
+                        {
+                            await e.Channel.SendMessage($"The user `{mentionedUser}` was not found! ");
+                            return;
+                        }
+
+                        await e.Channel.SendMessage($":clap: :100: {mentionedUser}");
+                        await e.Server.Ban(m);
+                    });
+                #endregion
+
                 #region ~prune
                 cgb.CreateCommand("Purge")
                 .MinPermissions((int)PermissionLevel.ServerAdmin)
