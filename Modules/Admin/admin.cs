@@ -26,8 +26,17 @@ namespace emily.Modules.Admin
             manager.CreateCommands("", cgb =>
             {
                 cgb.MinPermissions((int)PermissionLevel.ServerAdmin);
+                cgb.PublicOnly();
 
                 #region ~kick
+                cgb.CreateCommand("kick")
+                    .Description("Kicks requested user")
+                    .Parameter("user")
+                    .MinPermissions((int)PermissionLevel.ServerAdmin)
+                    .Do(async e =>
+                    {
+                        var user = await e.Server.FindUsers(); 
+                    });
                 #endregion
 
                 #region ~ban
