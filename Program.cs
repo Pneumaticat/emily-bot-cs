@@ -12,6 +12,7 @@ using emily.Enums;
 using emily.Modules.Basic_Commands;
 using emily.Modules.memes;
 using emily.Modules.summon;
+using emily.Modules.Admin;
 
 namespace emily_bot_cs
 {
