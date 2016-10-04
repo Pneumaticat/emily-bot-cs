@@ -31,43 +31,6 @@ namespace emily.Modules.Admin
                 #region ~kick
                 cgb.CreateCommand("kick")
                     .Description("Kicks requested user")
-                    .Parameter("user", ParameterType.Unparsed)
-                    .MinPermissions((int)PermissionLevel.ServerAdmin)
-                    .Do(async e =>
-                    {
-                         using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Discord;
-using Discord.Modules;
-using Discord.Commands;
-using Discord.Commands.Permissions.Levels;
-using Discord.Commands.Permissions.Visibility;
-using Discord.Commands.Permissions.Userlist;
-using emily.Enums;
-
-namespace emily.Modules.Admin
-{
-    class Admin : IModule
-    {
-        private DiscordClient _client;
-        private ModuleManager _manager;
-
-        void IModule.Install(ModuleManager manager)
-        {
-            _manager = manager;
-            _client = manager.Client;
-
-            manager.CreateCommands("", cgb =>
-            {
-                cgb.MinPermissions((int)PermissionLevel.ServerAdmin);
-                cgb.PublicOnly();
-
-                #region ~kick
-                cgb.CreateCommand("kick")
-                    .Description("Kicks requested user")
                     .Parameter("user")
                     .MinPermissions((int)PermissionLevel.ServerAdmin)
                     .Do(async e =>
@@ -95,29 +58,7 @@ namespace emily.Modules.Admin
                         await m.Kick();
                     });
                 #endregion
-
-                #region ~ban
-                #endregion
-
-                #region ~mute
-                #endregion
-
-                #region ~unmute
-                #region
-
-                #region ~defean
-                #endregion
-
-                #region ~cleanupmsg
-                #endregion
-
-            });
-        }
-    }
-}
-                    });
-                #endregion
-
+                
                 #region ~ban
                 #endregion
 
