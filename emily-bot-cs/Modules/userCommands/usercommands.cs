@@ -65,7 +65,6 @@ namespace emily.Modules.usercommands
                 #region ~greet
                 cgb.CreateCommand("greet")
                 .MinPermissions((int)PermissionLevel.User)
-                .Alias(new string[] { "gr", "sayhi" })
                 .Description("Greets a person.")
                 .Parameter("GreetedPerson", ParameterType.Required)
                 .Do(async e =>
