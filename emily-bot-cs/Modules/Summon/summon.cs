@@ -25,7 +25,8 @@ namespace emily.Modules.summon
             {
                 cgb.MinPermissions((int)PermissionLevel.User);
 
-                //IN PROGRESS
+                Random rand;
+                rand = new Random();
 
                 //Kittens
                 string[] kittens;
@@ -45,15 +46,43 @@ namespace emily.Modules.summon
                     @"Modules\Summon\puppyImages\puppy3.jgp"
                 };
 
-                #region ~summon doge
+                #region ~summon
                 cgb.CreateCommand("summon")
                 .MinPermissions((int)PermissionLevel.User)
-                .Alias(new string[] {"sm"})
                 .Description("Summons a requested creature")
                 .Parameter("RequestedCreature", ParameterType.Required)
                 .Do(async e =>
                 {
-                    await e.Channel.SendMessage("I like trains");
+
+                    string creature = e.Args[0];
+
+                    if(creature == "doge")
+                    {
+                        await e.Channel.SendFile(@"Modules\Summon\dogeImages\doge.png");
+                        await e.Channel.SendMessage("Summoned a doge!");
+                    }
+                    if(creature == "puppy")
+                    {
+                        int randomFilePuppy = rand.Next(puppies.Length);
+                        string puppyToSummon = puppies[randomFilePuppy];
+
+                        await e.Channel.SendFile(puppyToSummon);
+                        await e.Channel.SendMessage("Summoned a puppy!");
+                    }
+                    if(creature == "kitten")
+                    {
+                        int randomFileKitten = rand.Next(puppies.Length);
+                        string kittenToSummon = kittens[randomFileKitten];
+
+                        await e.Channel.SendFile(kittenToSummon);
+                        await e.Channel.SendMessage("Summoned a kitten!");
+                    }
+                    if(creature == "pepe")
+                    {
+                        await e.Channel.SendFile(@"Modules\Summon\pepeImages\pepe.png");
+                        await e.Channel.SendMessage("Summoned a pepe!");
+                    }
+
                 });
                 #endregion
 
