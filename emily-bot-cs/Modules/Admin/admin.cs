@@ -27,7 +27,7 @@ namespace emily.Modules.admin
 
                 #region ~kick
                 cgb.CreateCommand("kick")
-                    .Description("Kicks requested user")
+                    .Description("Kicks requested user off the server")
                     .Parameter("user")
                     .MinPermissions((int)PermissionLevel.ServerAdmin)
                     .Do(async e =>
