@@ -113,7 +113,7 @@ namespace emily.Modules.admin
                             return;
                         }
 
-                        await e.Channel.SendMessage($":zip: {mentionedUser}");
+                        await e.Channel.SendMessage($":zipper_mouth: {mentionedUser}");
                         await m.Edit(isMuted: true);
                     });
                 #endregion
