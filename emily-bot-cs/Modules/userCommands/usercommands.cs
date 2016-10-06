@@ -34,8 +34,8 @@ namespace emily.Modules.usercommands
                 {
                     "No problem!",
                     "Anytime!",
-                    "Just ask!"
-
+                    "Just ask!",
+                    "Your welcome!"
                 };
 
                 #region ~say
@@ -84,6 +84,17 @@ namespace emily.Modules.usercommands
 
                     await e.Channel.SendMessage(thankToSend);
                 });
+                #endregion
+
+                #region ~vote
+                cgb.CreateCommand("vote")
+                    .Description("Vote!")
+                    .MinPermissions((int)PermissionLevel.User)
+                    .Parameter("choice")
+                    .Do(async e =>
+                    {
+
+                    });
                 #endregion
 
             });
